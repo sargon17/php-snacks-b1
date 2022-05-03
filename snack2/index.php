@@ -1,15 +1,14 @@
 <?php
 
-$name = $_GET['name'];
-$age = $_GET['age'];
-$mail = $_GET['mail'];
-
+$name = $_GET['name'] ?? 'Guest';
+$age = $_GET['age'] ?? '0';
+$mail = $_GET['mail'] ?? 'no mail';
 
 $isAccessSuccessful = checkAccess();
 
 function checkAccess()
 {
-    if (isset($name) && isset($age) && isset($mail)) {
+    if (strlen($_GET['name']) >= 3 && is_numeric($_GET['age']) && strpos($_GET['mail'], '@') && strpos($_GET['mail'], '.')) {
         return true;
     } else {
         return false;
@@ -37,13 +36,23 @@ function checkAccess()
         align-items: center;
         height: 100vh;
     }
+
+    .access--ok {
+        color: green;
+    }
+
+    .access--fail {
+        color: red;
+    }
 </style>
 
 <body>
     <div>
-        <h1>Welcome <?php echo $name; ?></h1>
-        <p>You are <?php echo $age; ?> years old</p>
-        <p>Your email is <?php echo $mail; ?></p>
+        <?php if ($isAccessSuccessful) : ?>
+            <p class="access--ok">Access granted!</p>
+        <?php else : ?>
+            <p class="access--fail">Access denied!</p>
+        <?php endif; ?>
     </div>
 
 </body>

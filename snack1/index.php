@@ -5,35 +5,33 @@ $games = [
         "homeTeam" => "Boston Celtics",
         "awayTeam" => "Brooklyn Nets",
         "homeScore" => 81,
-        "awayScore" => 88
+        "awayScore" => 88,
     ],
     [
         "homeTeam" => "New York Knicks",
         "awayTeam" => "Philadelphia 76ers",
         "homeScore" => 101,
-        "awayScore" => 89
+        "awayScore" => 89,
     ],
     [
         "homeTeam" => "Toronto Raptors",
         "awayTeam" => "Chicago Bulls",
         "homeScore" => 111,
-        "awayScore" => 96
+        "awayScore" => 96,
     ],
     [
         "homeTeam" => "Cleveland Cavaliers",
         "awayTeam" => "Detroit Pistons",
         "homeScore" => 89,
-        "awayScore" => 92
+        "awayScore" => 92,
     ],
     [
         "homeTeam" => "Indiana Pacers",
         "awayTeam" => "Milwaukee Bucks",
         "homeScore" => 91,
-        "awayScore" => 93
-    ]
-]
-
-?>
+        "awayScore" => 93,
+    ],
+]; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -69,7 +67,11 @@ $games = [
     <ul>
         <?php foreach ($games as $game) { ?>
             <li>
-                <span class="teams"> <?php echo $game["homeTeam"] . "-" . $game["awayTeam"] ?> </span> | <span class="scores"> <?php echo $game["homeScore"] . "-" . $game["awayScore"]; ?> </span>
+                <span class="teams"> <?php echo $game["homeTeam"] .
+                                            "-" .
+                                            $game["awayTeam"]; ?> </span> | <span class="scores"> <?php echo $game["homeScore"] .
+                                                            "-" .
+                                                            $game["awayScore"]; ?> </span>
             </li>
         <?php } ?>
     </ul>
